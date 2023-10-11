@@ -69,7 +69,11 @@ function update_time()
         clearInterval(1); 
     }
 }
-
-
 setInterval(update_time, 1000);
+
+// 3) Activating Hit
+
+let hitvalue = Math.floor(Math.random()*10);
+document.querySelector('#hit').innerHTML=hitvalue;
+
 
