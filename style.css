@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI';
+    color: white;
  }
 html , body
 { 
@@ -11,3 +12,85 @@ height: 100%;
 width: 100%;
 }
 /* Main styling starts here */
+
+/* main */
+.main
+{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(175, 240, 175);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* panel */
+.panel
+{
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    border-radius:0.8rem ;
+    overflow: hidden;
+}
+
+/* panel top */
+.paneltop
+{
+    height: 15%;
+    width: 100%;
+    background-color: rgb(55, 138, 55);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* padding: 0px 25%; */
+}
+
+.elements
+{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.elements h4
+{
+    font-weight: 400;
+}
+
+.elements .box
+{
+   background-color: white;
+   color: black;
+   border-radius:0.2rem ;
+   font-size: 1rem;
+   padding: 0.2rem 0.8rem;
+   text-align: center;
+   font-weight:700 ;
+}
+
+/* panel bottom */
+
+.panelbottom
+{
+    /* background-color: aqua; */
+    width: 100%;
+    height: 85%;
+    padding: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
+.panelbottom .bubble
+{
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgb(55, 138, 55);
+    border-radius: 50%;
+}
