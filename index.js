@@ -15,7 +15,7 @@
     
 // }
 
-// Creating bubbles inside bottom panel using JS loop (way#2)(better way)
+//1)a- Creating bubbles inside bottom panel using JS loop (way#2)(better way)
 
 function bubblegenenrator() 
 {
@@ -33,22 +33,43 @@ bubblegenenrator();
 
 // 2) Activating Timer
 
-let initial_time= 5;
+// let initial_time= 60;
 
-let timer=document.querySelector('#timer');
-timer.innerHTML= initial_time;
+// let timer=document.querySelector('#timer');
+// timer.innerHTML= initial_time;
 
-function update_time()
- {
-    if (timer.innerHTML >0) 
+// function update_time()
+//  {
+//     if (timer.innerHTML >0) 
+//     {
+//         timer.innerHTML--;
+//     } else 
+//     {
+//         alert("Sorry, Your time is over!")
+//         clearInterval(1);
+//     }    
+// }
+
+// setInterval(update_time, 1000);
+
+//2)b- Activating Timer (way#2)(better way)
+let time=60;
+// Update time function will update time inside html timer
+function update_time() 
+{
+    if (time > 0) 
     {
-        timer.innerHTML--;
-    } else 
+        time --;
+        document.querySelector('#timer').innerHTML=time;
+        
+    }
+    else
     {
-        alert("Sorry, Your time is over!")
-        clearInterval(1);
-    }    
+        alert("Your time is over!");
+        clearInterval(1); 
+    }
 }
+
 
 setInterval(update_time, 1000);
 
