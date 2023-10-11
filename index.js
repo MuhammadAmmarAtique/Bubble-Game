@@ -1,4 +1,4 @@
-// Creating bubbles inside bottom panel using JS loop (way#1)
+// 1) Creating bubbles inside bottom panel using JS loop (way#1)
 
 // for (let i = 1; i < 71; i++) 
 // {
@@ -15,13 +15,40 @@
     
 // }
 
-// Creating bubbles inside bottom panel using JS loop (way#2)
+// Creating bubbles inside bottom panel using JS loop (way#2)(better way)
 
-let container="";
+function bubblegenenrator() 
+{
+    let container="";
 
 for (let i = 1; i <= 144; i++) 
 {
+    let randomno= Math.floor(Math.random()*10);
     // use += so that previous value doesnot got overwritten by new one.
-    container += `<div class="bubble">${i}</div>`;
+    container += `<div class="bubble">${randomno}</div>`;
     document.querySelector('.panelbottom').innerHTML=container;
 }
+}
+bubblegenenrator();
+
+// 2) Activating Timer
+
+let initial_time= 5;
+
+let timer=document.querySelector('#timer');
+timer.innerHTML= initial_time;
+
+function update_time()
+ {
+    if (timer.innerHTML >0) 
+    {
+        timer.innerHTML--;
+    } else 
+    {
+        alert("Sorry, Your time is over!")
+        clearInterval(1);
+    }    
+}
+
+setInterval(update_time, 1000);
+
