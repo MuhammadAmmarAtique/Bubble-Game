@@ -53,7 +53,7 @@ bubblegenenrator();
 // setInterval(update_time, 1000);
 
 //2)b- Activating Timer (way#2)(better way)
-let time=60;
+let time=20;
 // Update time function will update time inside html timer
 function update_time() 
 {
@@ -86,12 +86,16 @@ All_bubbles.forEach(bubble => {
         
         if (bubble.innerHTML == hit_no ) 
         {
-            console.log("equal")
             document.querySelector('#score').innerHTML++;
-        } else 
+            // Generating new number every time user clicks on bubble.
+            bubble.innerHTML=null;
+            bubble.innerHTML=Math.floor(Math.random()*10);
+        } 
+        else 
         {
-            console.log("not equal")
-            
+            // console.log("not equal");  
+            bubble.innerHTML=null;
+            bubble.innerHTML=Math.floor(Math.random()*10);  
         }
 
         })
