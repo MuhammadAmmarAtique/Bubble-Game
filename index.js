@@ -73,7 +73,27 @@ setInterval(update_time, 1000);
 
 // 3) Activating Hit
 
-let hitvalue = Math.floor(Math.random()*10);
-document.querySelector('#hit').innerHTML=hitvalue;
+let hit_no = Math.floor(Math.random()*10);
+document.querySelector('#hit').innerHTML=hit_no;
 
+// 4) Activating Score
 
+let All_bubbles= document.querySelectorAll('.bubble');
+
+All_bubbles.forEach(bubble => {
+
+    bubble.addEventListener('click',()=>{
+        
+        if (bubble.innerHTML == hit_no ) 
+        {
+            console.log("equal")
+            document.querySelector('#score').innerHTML++;
+        } else 
+        {
+            console.log("not equal")
+            
+        }
+
+        })
+    
+});
