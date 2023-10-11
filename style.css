@@ -84,7 +84,7 @@ width: 100%;
     gap: 0.2rem;
 }
 
-.panelbottom .bubble
+.bubble
 {
     display: flex;  
     align-items: center;
@@ -93,4 +93,10 @@ width: 100%;
     width: 2.5rem;
     background-color: rgb(55, 138, 55);
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.bubble:hover
+{
+    background-color: rgb(37, 99, 37);
 }
