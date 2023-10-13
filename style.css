@@ -57,7 +57,7 @@ width: 100%;
 
 .elements h4
 {
-    font-weight: 400;
+    font-weight: 380;
 }
 
 .elements .box
@@ -84,6 +84,7 @@ width: 100%;
     gap: 0.2rem;
 }
 
+/* bubble class for styling bubbles */
 .bubble
 {
     display: flex;  

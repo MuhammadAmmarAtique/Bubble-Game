@@ -21,7 +21,7 @@ function bubblegenenrator()
 {
     let container="";
 
-for (let i = 1; i <= 144; i++) 
+for (let i = 1; i <= 192; i++) 
 {
     let randomno= Math.floor(Math.random()*10);
     // use += so that previous value doesnot got overwritten by new one.
@@ -53,7 +53,7 @@ bubblegenenrator();
 // setInterval(update_time, 1000);
 
 //2)b- Activating Timer (way#2)(better way)
-let time=20;
+let time=document.querySelector('#timer').innerHTML=30;
 // Update time function will update time inside html timer
 function update_time() 
 {
@@ -78,26 +78,58 @@ document.querySelector('#hit').innerHTML=hit_no;
 
 // 4) Activating Score
 
-let All_bubbles= document.querySelectorAll('.bubble');
+// document.querySelector('#score').innerHTML=0;
 
-All_bubbles.forEach(bubble => {
+// let All_bubbles= document.querySelectorAll('.bubble');
+
+// All_bubbles.forEach(bubble => {
+
+//     bubble.addEventListener('click',()=>{
+        
+//         if (bubble.innerHTML == hit_no ) 
+//         {
+//             document.querySelector('#score').innerHTML++;
+//             // Generating new number every time user clicks on bubble.
+//             bubble.innerHTML=null;
+//             bubble.innerHTML=Math.floor(Math.random()*10);
+//         } 
+//         else 
+//         {
+//             // console.log("not equal");  
+//             bubble.innerHTML=null;
+//             bubble.innerHTML=Math.floor(Math.random()*10);  
+//         }
+
+//         })
+    
+// });
+
+// 4)b- Activating Score (2ND WAY OF PLAYING GAME)(Better one)
+
+let score= document.querySelector('#score').innerHTML=0;
+
+let bubbles =document.querySelectorAll('.bubble');
+
+bubbles.forEach((bubble)=>{
 
     bubble.addEventListener('click',()=>{
-        
-        if (bubble.innerHTML == hit_no ) 
+
+        if (bubble.innerHTML == document.querySelector('#hit').innerHTML ) 
         {
-            document.querySelector('#score').innerHTML++;
-            // Generating new number every time user clicks on bubble.
-            bubble.innerHTML=null;
-            bubble.innerHTML=Math.floor(Math.random()*10);
+            console.log("equal");
+            score=score+10;
+            document.querySelector('#score').innerHTML=score;
+            bubbles.forEach((bubble)=>{
+                bubble.innerHTML=Math.floor(Math.random()*10);
+            })
         } 
         else 
         {
-            // console.log("not equal");  
-            bubble.innerHTML=null;
-            bubble.innerHTML=Math.floor(Math.random()*10);  
+            console.log("not equal");
+            
         }
 
-        })
-    
-});
+
+    })
+
+})
