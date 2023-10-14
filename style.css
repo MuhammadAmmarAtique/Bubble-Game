@@ -82,6 +82,9 @@ width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 0.2rem;
+    /* For reult */
+    justify-content: center;
+    align-items: center;
 }
 
 /* bubble class for styling bubbles */
@@ -105,4 +108,11 @@ width: 100%;
 .bubble:active
 {
     transform: scale(0.95);
+}
+
+/*  */
+
+.result{
+    color: black;
+    text-align: center;
 }

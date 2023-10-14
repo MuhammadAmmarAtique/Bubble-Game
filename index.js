@@ -15,7 +15,7 @@
     
 // }
 
-//1)a- Creating bubbles inside bottom panel using JS loop (way#2)(better way)
+//1)b- Creating bubbles inside bottom panel using JS loop (way#2)(better way)
 
 function bubblegenenrator() 
 {
@@ -53,7 +53,7 @@ bubblegenenrator();
 // setInterval(update_time, 1000);
 
 //2)b- Activating Timer (way#2)(better way)
-let time=document.querySelector('#timer').innerHTML=30;
+let time=document.querySelector('#timer').innerHTML=2;
 // Update time function will update time inside html timer
 function update_time() 
 {
@@ -65,11 +65,14 @@ function update_time()
     }
     else
     {
-        alert("Your time is over!");
+        // alert("Your time is over!");
         clearInterval(1); 
+        document.querySelector('.panelbottom').innerHTML= null;
+        document.querySelector('.panelbottom').innerHTML= `<h1 class="result">Game over! Play Again 😊</h1>`;
     }
 }
 setInterval(update_time, 1000);
+
 
 // 3) Activating Hit
 
@@ -106,30 +109,66 @@ document.querySelector('#hit').innerHTML=hit_no;
 
 // 4)b- Activating Score (2ND WAY OF PLAYING GAME)(Better one)
 
-let score= document.querySelector('#score').innerHTML=0;
+// // setting initial value of score =0
+// let score= document.querySelector('#score').innerHTML=0;
 
-let bubbles =document.querySelectorAll('.bubble');
+// //storing all html bubbles in "bubbles" variable
+// let bubbles =document.querySelectorAll('.bubble');
 
-bubbles.forEach((bubble)=>{
+// // Adding event in each bubble
+// bubbles.forEach((bubble)=>{
 
-    bubble.addEventListener('click',()=>{
+//     bubble.addEventListener('click',()=>{
 
-        if (bubble.innerHTML == document.querySelector('#hit').innerHTML ) 
-        {
-            console.log("equal");
-            score=score+10;
-            document.querySelector('#score').innerHTML=score;
-            bubbles.forEach((bubble)=>{
-                bubble.innerHTML=Math.floor(Math.random()*10);
-            })
-        } 
-        else 
-        {
-            console.log("not equal");
+//         if (bubble.innerHTML == document.querySelector('#hit').innerHTML ) 
+//         {
+//             console.log("Hit & bubble value is equal");
+
+//             // increasing score value by 10
+//             // score=score+10;
+//             score += 10;
+//             document.querySelector('#score').innerHTML=score;
+
+//             // regenrating random no. again for all "bubbles" and "hit"
+//             bubbles.forEach((bubble)=>{
+//                 bubble.innerHTML=Math.floor(Math.random()*10);
+//             })
+//             document.querySelector('#hit').innerHTML=Math.floor(Math.random()*10);
+//         } 
+//         else 
+//         {
+//             console.log("Hit & bubble value is not equal");
             
-        }
+//         }
 
 
-    })
+//     })
 
-})
+// })
+
+// 4)c- Activating Score by using event bubbling concept
+
+let score =document.querySelector("#score").innerHTML=0;
+
+     // event bubbling
+document.querySelector('.panelbottom').addEventListener('click',(bubble)=>{
+
+    // bubble.target is the element in which user has clicked
+    // console.log(bubble.target);
+
+    if (bubble.target.innerHTML === document.querySelector('#hit').innerHTML) 
+    {
+        // increasing score 
+        score += 10;
+        document.querySelector("#score").innerHTML=score;
+        // genrating new numbers inside all bubbles
+        let bubbles =document.querySelectorAll('.bubble');
+        bubbles.forEach(bubble =>{
+            bubble.innerHTML= Math.floor(Math.random()*10);
+        })
+        // genrating new number inside hit
+        document.querySelector('#hit').innerHTML= Math.floor(Math.random()*10);  
+    } 
+
+
+   })
