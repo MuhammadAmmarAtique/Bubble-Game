@@ -27,8 +27,8 @@ width: 100%;
 /* panel */
 .panel
 {
-    height: 80%;
-    width: 80%;
+    height: 85.5%;
+    width: 85.5%;
     background-color: white;
     border-radius:0.8rem ;
     overflow: hidden;
@@ -112,7 +112,7 @@ width: 100%;
     transform: scale(0.95);
 }
 
-/*  */
+/* classes for elements made using js for showing result to user   */
 .result-red{
     color: red;
 }

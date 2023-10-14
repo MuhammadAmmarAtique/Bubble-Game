@@ -201,4 +201,4 @@ document.querySelector('.panelbottom').addEventListener('click',(bubble)=>{
     } 
    })
 
- 
+//  JS is messy b/c i tried to implement code trough several ways.
