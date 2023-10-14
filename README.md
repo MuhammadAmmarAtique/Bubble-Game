@@ -2,6 +2,10 @@
 
 Welcome to the Bubble Game! This is a simple web-based game where you need to click on bubbles with the correct number to earn points. You have a limited amount of time to score as many points as possible. Can you beat your high score? Let's find out!
 
+## Game Screenshot
+
+![Bubble Game Screenshot](ss.png)
+
 ## How to Play
 
 1. When the game starts, a random number will appear at the top under "Hit."
@@ -28,10 +32,6 @@ Welcome to the Bubble Game! This is a simple web-based game where you need to cl
 2. Open the `index.html` file in your web browser to play the game.
 
 Have fun playing the Bubble Game! Try to beat your high score and challenge your friends to see who can score the most points. Good luck!
-
-## Game Screenshot
-
-![Bubble Game Screenshot](screenshot.png)
 
 ## Developer's Notes
 
