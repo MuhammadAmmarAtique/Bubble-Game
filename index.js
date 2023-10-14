@@ -17,11 +17,11 @@
 
 //1)b- Creating bubbles inside bottom panel using JS loop (way#2)(better way)
 
-function bubblegenenrator() 
+function bubblegenerator() 
 {
     let container="";
 
-for (let i = 1; i <= 192; i++) 
+for (let i = 1; i <= 220; i++) 
 {
     let randomno= Math.floor(Math.random()*10);
     // use += so that previous value doesnot got overwritten by new one.
@@ -29,7 +29,7 @@ for (let i = 1; i <= 192; i++)
     document.querySelector('.panelbottom').innerHTML=container;
 }
 }
-bubblegenenrator();
+bubblegenerator();
 
 // 2) Activating Timer
 
@@ -53,7 +53,7 @@ bubblegenenrator();
 // setInterval(update_time, 1000);
 
 //2)b- Activating Timer (way#2)(better way)
-let time=document.querySelector('#timer').innerHTML=2;
+let time=document.querySelector('#timer').innerHTML=30;
 // Update time function will update time inside html timer
 function update_time() 
 {
@@ -61,16 +61,31 @@ function update_time()
     {
         time --;
         document.querySelector('#timer').innerHTML=time;
-        
+    
     }
     else
     {
         // alert("Your time is over!");
         clearInterval(1); 
-        document.querySelector('.panelbottom').innerHTML= null;
-        document.querySelector('.panelbottom').innerHTML= `<h1 class="result">Game over! Play Again 😊</h1>`;
+
+       // RESULT DISPLAY
+      let highestscore_str= localStorage.getItem('best_score');
+      let highestscore_arr = JSON.parse(highestscore_str);
+
+    //   getting highest number from array
+      const max_no = Math.max(...highestscore_arr);
+
+
+    document.querySelector('.panelbottom').innerHTML= 
+    `<h1 class="result-red">Game over!</h1> 
+     <h3 class="result">Previous Best Score : ${max_no}`;
     }
+
+
+
+
 }
+
 setInterval(update_time, 1000);
 
 
@@ -161,14 +176,29 @@ document.querySelector('.panelbottom').addEventListener('click',(bubble)=>{
         // increasing score 
         score += 10;
         document.querySelector("#score").innerHTML=score;
+
+        // Storing score inside local storage and will use it in displaying result above when timer is finished.
+        if(localStorage.getItem('best_score')==null)
+        {
+            let arr=[];
+            arr.push([score]);
+            localStorage.setItem('best_score',JSON.stringify(arr));
+        }
+        
+        else
+        {
+           let arrstring=localStorage.getItem('best_score');
+           arr=JSON.parse(arrstring);
+           arr.push([score]);
+           localStorage.setItem('best_score',JSON.stringify(arr));
+        }
+
         // genrating new numbers inside all bubbles
-        let bubbles =document.querySelectorAll('.bubble');
-        bubbles.forEach(bubble =>{
-            bubble.innerHTML= Math.floor(Math.random()*10);
-        })
+        bubblegenerator();
+
         // genrating new number inside hit
         document.querySelector('#hit').innerHTML= Math.floor(Math.random()*10);  
     } 
-
-
    })
+
+ 
